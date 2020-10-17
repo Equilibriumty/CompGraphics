@@ -22,7 +22,7 @@ class Romb(gr.Polygon):
 
     def movement(self, x_move, y_move):
         array_of_movement = np.array([[1,      0,     0],
-                                      [0,      1,     1],
+                                      [0,      1,     0],
                                       [x_move, y_move,1]
                                       ])
         self.undraw()
@@ -60,7 +60,9 @@ def main():
     win = gr.GraphWin("Лабораторна робота №2", 1000, 1000)
     romb = Romb((150, 150), 100, 100)
     romb.output(win)
-    romb.movement(100, 100)
+    for i in range(10):
+        romb.movement(5+i, 5+i)
+        time.sleep(0.15)
     time.sleep(1)
     romb.rotate(cos(0.7), sin(0.3))
     time.sleep(1)
